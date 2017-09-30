@@ -13,6 +13,9 @@ DESTDIR=$(CURDIR)/debian/erlang-p1-imp
 
 override_dh_auto_build:
 	make
+	### find all files
+	find
+	### end find
 	dh_auto_build
 
 
