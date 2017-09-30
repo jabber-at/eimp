@@ -20,6 +20,9 @@ override_dh_auto_configure:
 	./configure
 	dh_auto_configure
 
+override_dh_auto_install:
+	dh_install priv/bin/* /usr/lib/erlang/p1_pam/bin/
+	dh_auto_install
 
 override_dh_auto_clean:
 	rm -f config.log config.status
