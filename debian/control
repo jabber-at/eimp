@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Mathias Ertl <mati@jabber.at>
 Build-Depends: debhelper (>= 9), dh-rebar, 
                libgd-dev, libwebp-dev, libpng-dev, libjpeg-dev,
-               erlang-base, erlang-eunit,
+               erlang-base, erlang-eunit, erlang-syntax-tools,
                erlang-p1-utils (>= 1.0.10),
 Standards-Version: 4.1.1
 Homepage: https://github.com/processone/eimp
