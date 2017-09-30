@@ -9,3 +9,13 @@ DESTDIR=$(CURDIR)/debian/erlang-p1-imp
 
 %:
 	dh $@ --buildsystem=rebar --with rebar
+
+
+override_dh_auto_configure:
+	./configure
+	dh_auto_configure
+
+
+override_dh_auto_clean:
+	rm -f config.log config.status
+	dh_auto_clean
