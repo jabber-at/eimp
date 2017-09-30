@@ -21,6 +21,9 @@ override_dh_auto_configure:
 	dh_auto_configure
 
 override_dh_auto_install:
+	### find all files
+	find
+	### end find
 	dh_install priv/bin/* /usr/lib/erlang/p1_pam/bin/
 	dh_auto_install
 
