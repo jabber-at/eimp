@@ -11,22 +11,15 @@ DESTDIR=$(CURDIR)/debian/erlang-p1-imp
 	dh $@ --buildsystem=rebar --with rebar
 
 
-override_dh_auto_build:
-	make
-	### find all files
-	find
-	### end find
-	dh_auto_build
-
+override_dh_auto_test:
+	# Explanation: https://github.com/processone/eimp/issues/3#issuecomment-333381071
+	make test
 
 override_dh_auto_configure:
 	./configure
 	dh_auto_configure
 
 override_dh_auto_install:
-	### find all files
-	find
-	### end find
 	dh_install priv/bin/* /usr/lib/erlang/lib/p1_imp-$(DEB_VERSION_UPSTREAM)/priv/bin/
 	dh_auto_install
 
