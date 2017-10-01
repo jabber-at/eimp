@@ -27,7 +27,7 @@ override_dh_auto_install:
 	### find all files
 	find
 	### end find
-	dh_install priv/bin/* /usr/lib/erlang/p1_pam/bin/
+	dh_install priv/bin/* /usr/lib/erlang/lib/p1_imp-$(DEB_VERSION_UPSTREAM)/priv/bin/
 	dh_auto_install
 
 override_dh_auto_clean:
