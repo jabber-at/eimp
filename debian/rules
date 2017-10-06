@@ -13,7 +13,10 @@ DESTDIR=$(CURDIR)/debian/erlang-p1-imp
 
 override_dh_auto_test:
 	# Explanation: https://github.com/processone/eimp/issues/3#issuecomment-333381071
-	make test
+	# This is just what "make test" currently does
+	mkdir -p .eunit/priv/bin
+	cp priv/bin/eimp .eunit/priv/bin/
+	rebar -vv skip_deps=true eunit
 
 override_dh_auto_configure:
 	./configure
