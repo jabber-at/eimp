@@ -4,7 +4,7 @@
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 include /usr/share/dpkg/default.mk
 
-DESTDIR=$(CURDIR)/debian/erlang-p1-imp
+DESTDIR=$(CURDIR)/debian/erlang-p1-eimp
 
 
 %:
@@ -15,8 +15,9 @@ override_dh_auto_configure:
 	./configure
 	dh_auto_configure
 
+
 override_dh_auto_install:
-	dh_install priv/bin /usr/lib/erlang/lib/p1_imp-$(DEB_VERSION_UPSTREAM)/priv/
+	dh_install priv/bin /usr/lib/erlang/lib/p1_eimp-$(DEB_VERSION_UPSTREAM)/priv/
 	dh_auto_install
 
 

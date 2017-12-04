@@ -1,6 +1,8 @@
-erlang-p1-imp (1.0.2-0.1) unstable; urgency=medium
+erlang-p1-eimp (1.0.2-0.1) unstable; urgency=medium
 
   * New upstream release.
+  * Rename package to erlang-p1-eimp, to match upstream.
+  * Merge some changes from the mainline Debian package.
 
  -- Mathias Ertl <mati@jabber.at>  Mon, 04 Dec 2017 13:52:49 +0100
 
