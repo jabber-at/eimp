@@ -1,5 +1,4 @@
 Source: erlang-p1-imp
-Section: libs
 Priority: optional
 Maintainer: Mathias Ertl <mati@jabber.at>
 Build-Depends: debhelper (>= 9), dh-rebar, 
