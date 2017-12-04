@@ -24,6 +24,8 @@ Description: Erlang application for manipulating graphic images
 
 Package: erlang-p1-imp
 Architecture: any
+Priority: extra
+Section: oldlibs
 Depends: erlang-p1-eimp, ${misc:Depends}
 Description: Erlang application for manipulating graphic images (transitional package)
  Transitional package for erlang-p1-eimp.
