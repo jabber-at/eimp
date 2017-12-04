@@ -1,0 +1,15 @@
+Description: use system-installed rebar
+ Without this patch, the makefile tries to use a locally shipped rebar
+ which isn't there.
+Author: Philipp Huebner <debalance@debian.org>
+
+Index: erlang-p1-eimp/Makefile
+===================================================================
+--- erlang-p1-eimp.orig/Makefile
++++ erlang-p1-eimp/Makefile
+@@ -1,4 +1,4 @@
+-REBAR=./rebar
++REBAR=rebar
+ 
+ all: src
+ 
