@@ -1,10 +1,10 @@
 Source: erlang-p1-eimp
 Priority: optional
 Maintainer: Mathias Ertl <mati@jabber.at>
-Build-Depends: debhelper (>= 9), dh-rebar, erlang-base, erlang-eunit, erlang-p1-utils (>= 1.0.10),
+Build-Depends: debhelper (>= 9), dh-rebar, erlang-base, erlang-eunit, erlang-p1-utils (>= 1.0.11),
        erlang-syntax-tools,
  	libgd-dev, libjpeg-dev, libpng-dev, libwebp-dev
-Standards-Version: 4.1.1
+Standards-Version: 4.1.3
 Section: libs
 Homepage: https://github.com/processone/eimp
 VCS-Git: https://github.com/jabber-at/eimp.git
@@ -13,7 +13,7 @@ VCS-Browser: https://github.com/jabber-at/eimp
 Package: erlang-p1-eimp
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, erlang-base | ${erlang-abi:Depends},
-         ${erlang:Depends}, erlang-p1-utils (>= 1.0.10)
+         ${erlang:Depends}, erlang-p1-utils (>= 1.0.11)
 Breaks: erlang-p1-imp (<< 1.0.2)
 Replaces: erlang-p1-imp (<< 1.0.2)
 Provides: erlang-p1-imp
