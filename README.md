@@ -27,6 +27,9 @@ $ make
 Note that running the configure script is highly recommended, so you should consider
 adding it in pre-hooks of your rebar configuration.
 
+If no C libraries are found at compile time, the package will still be compiled.
+In this case the only usable function would be [get_type/1](#get_type1).
+
 # Application design
 
 The C code is compiled into external native binary called `eimp`, which is
@@ -113,3 +116,15 @@ The `Reason` can have the following values:
 -spec get_type(Data :: binary()) -> png | jpeg | webp | gif | unknown.
 ```
 Detects image format of `Data`.
+
+### is_supported/1
+```erl
+-spec is_supported(Format :: atom()) -> boolean.
+```
+Returns `true` if `Format` is known and compiled and `false` otherwise.
+
+### supported_formats/0
+```erl
+-spec supported_formats() -> [png | jpeg | webp | gif].
+```
+Returns a list of all known and compiled formats.

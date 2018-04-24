@@ -18,7 +18,10 @@
 -module(eimp).
 
 %% API
--export([start/0, stop/0, convert/2, convert/3, identify/1, format_error/1, get_type/1]).
+-export([start/0, stop/0, convert/2, convert/3, identify/1, format_error/1,
+	 get_type/1, supported_formats/0, is_supported/1]).
+%% For internal needs only
+-export([is_gd_compiled/0]).
 
 -type img_type() :: png | jpeg | webp | gif.
 -type error_reason() :: unsupported_format |
@@ -27,6 +30,7 @@
 			encode_failure |
 			decode_failure |
 			transform_failure |
+			too_many_requests |
 			image_too_big.
 -type info() :: [{type, img_type()} |
 		 {width, non_neg_integer()} |
@@ -64,7 +68,14 @@ convert(Data, To, Opts) ->
 	    EncOpts = encode_options(Opts),
 	    FromCode = code(Type),
 	    Cmd = <<?CMD_CONVERT, FromCode, ToCode, EncOpts/binary, Data/binary>>,
-	    call(Cmd)
+	    Limiter = proplists:get_value(limit_by, Opts),
+	    RateLimit = proplists:get_value(rate_limit, Opts),
+	    case eimp_limit:is_blocked(Limiter, RateLimit) of
+		false ->
+		    call(Cmd);
+		true ->
+		    {error, too_many_requests}
+	    end
     end.
 
 -spec identify(binary()) -> {ok, info()} | {error, error_reason()}.
@@ -96,8 +107,26 @@ format_error(timeout) ->
     <<"Timeout">>;
 format_error(disconnected) ->
     <<"Failed to connect to external eimp process">>;
+format_error(too_many_requests) ->
+    <<"Too many requests">>;
 format_error(image_too_big) ->
     <<"Image is too big">>.
+
+-spec is_supported(img_type()) -> boolean().
+is_supported(jpeg) ->
+    is_jpeg_compiled();
+is_supported(png) ->
+    is_png_compiled();
+is_supported(gif) ->
+    is_gd_compiled();
+is_supported(webp) ->
+    is_webp_compiled();
+is_supported(_) ->
+    false.
+
+-spec supported_formats() -> [img_type()].
+supported_formats() ->
+    lists:filter(fun is_supported/1, [webp, jpeg, png, gif]).
 
 %%%===================================================================
 %%% Internal functions
@@ -142,3 +171,27 @@ encode_options(Opts) ->
 			       erlang:error(badarg)
 		       end,
     <<ScaleW:16, ScaleH:16>>.
+
+-ifdef(HAVE_GD).
+is_gd_compiled() -> true.
+-else.
+is_gd_compiled() -> false.
+-endif.
+
+-ifdef(HAVE_PNG).
+is_png_compiled() -> true.
+-else.
+is_png_compiled() -> false.
+-endif.
+
+-ifdef(HAVE_JPEG).
+is_jpeg_compiled() -> true.
+-else.
+is_jpeg_compiled() -> false.
+-endif.
+
+-ifdef(HAVE_WEBP).
+is_webp_compiled() -> true.
+-else.
+is_webp_compiled() -> false.
+-endif.
