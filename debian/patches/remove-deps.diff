@@ -3,10 +3,10 @@ Description: remove deps in rebar.config
  at compile time.
 Author: Philipp Huebner <debalance@debian.org>
 
-Index: erlang-p1-imp/rebar.config
+Index: erlang-p1-eimp/rebar.config
 ===================================================================
---- erlang-p1-imp.orig/rebar.config
-+++ erlang-p1-imp/rebar.config
+--- erlang-p1-eimp.orig/rebar.config
++++ erlang-p1-eimp/rebar.config
 @@ -28,7 +28,6 @@
  
  {port_specs, [{"priv/bin/eimp", ["c_src/eimp.c"]}]}.
