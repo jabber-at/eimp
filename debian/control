@@ -1,5 +1,6 @@
 Source: erlang-p1-eimp
 Maintainer: Mathias Ertl <mati@jabber.at>
+XSBC-Orig-Maintainer: Ejabberd Packaging Team <ejabberd@packages.debian.org>
 Section: libs
 Priority: optional
 Build-Depends: debhelper (>= 11~),

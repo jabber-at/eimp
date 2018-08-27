@@ -1,2 +1,4 @@
 erlang-p1-eimp source: debian-watch-does-not-check-gpg-signature
+erlang-p1-eimp source: maintainer-upload-has-incorrect-version-number
 erlang-p1-eimp source: testsuite-autopkgtest-missing
+erlang-p1-eimp source: unknown-field-in-dsc orig-maintainer
