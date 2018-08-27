@@ -5,6 +5,7 @@ erlang-p1-eimp (1.0.6-0.1) unstable; urgency=medium
   * Switched to debhelper 11
   * Add debian/source/lintian-overrides from upstream
   * Remove debian/docs (not installed upstream either)
+  * remove old erlang-p1-imp package
 
  -- Mathias Ertl <mati@jabber.at>  Mon, 27 Aug 2018 11:25:35 +0200
 
