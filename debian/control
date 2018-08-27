@@ -2,11 +2,11 @@ Source: erlang-p1-eimp
 Maintainer: Mathias Ertl <mati@jabber.at>
 Section: libs
 Priority: optional
-Build-Depends: debhelper (>= 9),
+Build-Depends: debhelper (>= 11~),
                dh-rebar,
                erlang-base,
                erlang-eunit,
-               erlang-p1-utils (>= 1.0.11),
+               erlang-p1-utils (>= 1.0.12),
                libgd-dev,
                libjpeg-dev,
                libpng-dev,
@@ -22,7 +22,7 @@ Depends: ${shlibs:Depends},
          ${misc:Depends},
          erlang-base | ${erlang-abi:Depends},
          ${erlang:Depends},
-         erlang-p1-utils (>= 1.0.11)
+         erlang-p1-utils (>= 1.0.12)
 Breaks: erlang-p1-imp (<< 1.0.2)
 Replaces: erlang-p1-imp (<< 1.0.2)
 Provides: erlang-p1-imp
