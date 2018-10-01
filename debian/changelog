@@ -1,3 +1,9 @@
+erlang-p1-eimp (1.0.8-0.1) unstable; urgency=medium
+
+  * New upstream version 1.0.8
+
+ -- Mathias Ertl <mati@jabber.at>  Mon, 01 Oct 2018 20:11:23 +0200
+
 erlang-p1-eimp (1.0.6-0.1) unstable; urgency=medium
 
   * New upstream version 1.0.6
